@@ -6,32 +6,21 @@ public class FirstHello {
         System.out.println("Hello, world!");
 
         /**Первый расчет**/
-        System.out.println(distance1());
+        int x1 = 1;
+        int x2 = 5;
+        int y1 = 1;
+        int y2 = 4;
+        System.out.println("Расстояние между точками " + Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2)) + " единиц");
 
         /**Второй расчет**/
-        System.out.println(distance2());
+        System.out.println("Расстояние между точками " + distance1() + " единиц");
 
-    }
-
-    /**
-     * Первый расчет
-     **/
-    public static double distanceX(int x1, int x2) {
-        return x2 - x1;
-    }
-
-    public static double distanceY(int y1, int y2) {
-        return y2 - y1;
-    }
-
-    public static double distance1() {
-        return Math.sqrt(Math.pow((distanceX(1, 5)), 2) + Math.pow((distanceY(1, 4)), 2));
     }
 
     /**
      * Второй расчет
      **/
-    public static double distance2() {
+    public static double distance1() {
 
         Point1 p1 = new Point1(1, 1);
         Point2 p2 = new Point2(5, 4);
