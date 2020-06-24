@@ -1,2 +1,4 @@
-FirstHello.java
- FirstHello
+ru/spqr/sandbox/Point.java
+ ru.spqr.sandbox.Point
+ru/spqr/sandbox/FirstHello.java
+ ru.spqr.sandbox.FirstHello
