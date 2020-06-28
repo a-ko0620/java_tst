@@ -23,7 +23,6 @@ public class ContactCreationTests extends TestBase{
                                                 "16",
                                                 "September",
                                                 "2290",
-                                                "Group1",
                                                 "Планета Деливеренс",
                                                 "89029219285",
                                                 "Фанат Вархаммера"));

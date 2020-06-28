@@ -30,7 +30,6 @@ public class ContactHelper extends HelperBase {
         select(By.name("bday"), contactCreation.getBirthDay());
         select(By.name("bmonth"), contactCreation.getBirthMonth());
         type(By.name("byear"), contactCreation.getBirthYear());
-        select(By.name("new_group"), contactCreation.getGroup());
         type(By.name("address2"), contactCreation.getAddress2());
         type(By.name("phone2"), contactCreation.getPhone());
         type(By.name("notes"), contactCreation.getNotes());
@@ -38,5 +37,26 @@ public class ContactHelper extends HelperBase {
 
     public void initContactCreation() {
         click(By.linkText("add new"));
+    }
+
+    public void selectContact(String id) {
+        click(By.id(id));
+
+    }
+
+    public void deleteContact() {
+        click(By.xpath("//input[@value='Delete']"));
+    }
+
+    public void initContactModification(){
+        click(By.xpath("//img[@alt='Edit']"));
+    }
+
+    public void submitContactModification(){
+        click(By.name("update"));
+    }
+
+    public void returnToContactsPage() {
+        click(By.linkText("home page"));
     }
 }
