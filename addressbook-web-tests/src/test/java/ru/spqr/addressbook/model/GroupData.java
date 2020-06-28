@@ -1,4 +1,4 @@
-package ru.spqr.addressbook;
+package ru.spqr.addressbook.model;
 
 public class GroupData {
     private final String name;

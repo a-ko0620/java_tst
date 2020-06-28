@@ -1,13 +1,14 @@
-package ru.spqr.addressbook;
+package ru.spqr.addressbook.tests;
 
 import org.testng.annotations.Test;
+import ru.spqr.addressbook.model.ContactCreation;
 
 public class ContactCreationTests extends TestBase{
 
     @Test
     public void testContactCreation() throws Exception {
-        initContactCreation();
-        fillingContactForms(new ContactCreation("Corvus",
+        app.getContactHelper().initContactCreation();
+        app.getContactHelper().fillingContactForms(new ContactCreation("Corvus",
                                                 "Corax",
                                                 "Primarch",
                                                 "Nevermore",
@@ -26,6 +27,6 @@ public class ContactCreationTests extends TestBase{
                                                 "Планета Деливеренс",
                                                 "89029219285",
                                                 "Фанат Вархаммера"));
-        submitNewContact();
+        app.getContactHelper().submitNewContact();
     }
 }
