@@ -7,15 +7,15 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification(){
-        app.getContactHelper().selectContact("8");
+        app.getContactHelper().selectContact();
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillingContactForms(new ContactCreation("Corvus",
-                "Corax",
+        app.getContactHelper().fillingContactForms(new ContactCreation("Rogal",
+                "Dorn",
                 "Primarch",
-                "Nevermore",
-                "Воронья Гвардия",
-                "Улетел куда-то, я хз",
-                "Дом там, где война",
+                "Builder",
+                "Имперские кулаки",
+                "Одна рука осталась",
+                "Терра",
                 "1212643123",
                 "512554124",
                 "6551234",
@@ -24,9 +24,9 @@ public class ContactModificationTests extends TestBase {
                 "16",
                 "September",
                 "2290",
-                "Планета Деливеренс",
+                "Святая терра",
                 "89029219285",
-                "Фанат Вархаммера"));
+                "Притворяется мертвым"));
         app.getContactHelper().submitContactModification();
         app.getContactHelper().returnToContactsPage();
     }
