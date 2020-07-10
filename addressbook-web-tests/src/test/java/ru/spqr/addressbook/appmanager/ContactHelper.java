@@ -1,6 +1,7 @@
 package ru.spqr.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.spqr.addressbook.model.ContactCreation;
@@ -60,4 +61,5 @@ public class ContactHelper extends HelperBase {
     public void returnToContactsPage() {
         click(By.linkText("home page"));
     }
+
 }
