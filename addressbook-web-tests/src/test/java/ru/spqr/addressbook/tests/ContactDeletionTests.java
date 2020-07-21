@@ -1,8 +1,11 @@
 package ru.spqr.addressbook.tests;
 
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.spqr.addressbook.model.ContactCreation;
+
+import java.util.List;
 
 
 public class ContactDeletionTests extends TestBase {
@@ -29,8 +32,11 @@ public class ContactDeletionTests extends TestBase {
                     "89029219285",
                     "Фанат Вархаммера"));
         }
-        app.getContactHelper().selectContact();
+        List<ContactCreation> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContact(before.size() + 1);
         app.getContactHelper().deleteContact();
         app.getContactHelper().closeAlert();
+        List<ContactCreation> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() - 1);
     }
 }

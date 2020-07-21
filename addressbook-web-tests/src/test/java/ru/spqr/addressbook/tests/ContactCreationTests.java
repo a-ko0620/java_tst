@@ -1,12 +1,18 @@
 package ru.spqr.addressbook.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.spqr.addressbook.model.ContactCreation;
+import ru.spqr.addressbook.model.GroupData;
+
+import java.util.List;
 
 public class ContactCreationTests extends TestBase{
 
     @Test
     public void testContactCreation() throws Exception {
+        List<ContactCreation> before = app.getContactHelper().getContactList();
+
         app.getContactHelper().createContact(new ContactCreation("Corvus",
                                                 "Corax",
                                                 "Primarch",
@@ -25,5 +31,8 @@ public class ContactCreationTests extends TestBase{
                                                 "Планета Деливеренс",
                                                 "89029219285",
                                                 "Фанат Вархаммера"));
+        List<ContactCreation> after = app.getContactHelper().getContactList();
+
+        Assert.assertEquals(after.size(), before.size() + 1);
     }
 }

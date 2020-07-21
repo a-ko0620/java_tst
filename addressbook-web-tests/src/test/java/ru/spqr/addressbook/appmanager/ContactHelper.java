@@ -2,7 +2,12 @@ package ru.spqr.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.spqr.addressbook.model.ContactCreation;
+import ru.spqr.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -39,20 +44,19 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void selectContact() {
-        click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
-
+    public void selectContact(int index) {
+        wd.findElements(By.name("name=selected[]")).get(index).click();
     }
 
     public void deleteContact() {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void initContactModification(){
+    public void initContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
     }
 
-    public void submitContactModification(){
+    public void submitContactModification() {
         click(By.name("update"));
     }
 
@@ -61,14 +65,44 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isThereAContact() {
-        return  isElementPresent(By.name("selected[]"));
+        return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactCreation contact){
+    public void createContact(ContactCreation contact) {
         initContactCreation();
         fillingContactForms(contact);
         submitNewContact();
         returnToContactsPage();
     }
 
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactCreation> getContactList() {
+        List<ContactCreation> contacts = new ArrayList<ContactCreation>();
+        List<WebElement> line = wd.findElements(By.cssSelector("tr[name = entry]"));
+        for (WebElement element : line) {
+            List<WebElement> elements = element.findElements(By.tagName("td"));
+            String firstName = elements.get(2).getText();
+            String lastName = elements.get(1).getText();
+            ContactCreation contact = new ContactCreation(firstName, lastName, null, null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            contacts.add(contact);
+        }
+        return contacts;
+    }
 }
